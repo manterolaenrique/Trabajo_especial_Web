@@ -8,6 +8,7 @@
                 <tr id="m-header">
                     <th scope="col">Nombre Servicio</th>
                     <th scope="col">Informacion</th>
+                    <th scope="col">Ver Opiniones</th>
                 </tr>
             </thead>
             <tbody>
@@ -15,6 +16,7 @@
                     <tr>
                         <td>{$servicio->nombre}</td>
                         <td>{$servicio->info}</td>
+                        <td><a href='verMasServicios/{$servicio->id}'>Ver opiniones</a></td>
                     </tr>
                 {/foreach}
             </tbody>

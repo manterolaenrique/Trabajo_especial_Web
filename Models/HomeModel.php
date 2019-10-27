@@ -23,6 +23,30 @@
 
             return $opiniones;
         }
+
+        public function mostrarOrdenado(){
+            $consulta = $this->db->prepare("SELECT * from servicios inner Join opinion ON servicios.id = opinion.id_servicio ORDER BY id_servicio ASC");
+            $consulta->execute();
+            $opiniones = $consulta->fetchAll(PDO::FETCH_OBJ);   
+
+            return $opiniones;
+        }
+
+        public function mostrarOpinionesServicios($id){
+            $consulta = $this->db->prepare( "SELECT * from opinion where id_servicio = ?");
+            $consulta->execute([$id]);
+            $opiniones = $consulta->fetchAll(PDO::FETCH_OBJ);  
+
+            return $opiniones;
+        }
+
+        public function mostrarOpinion($id){
+            $consulta = $this->db->prepare( "SELECT * from opinion where id = ?");
+            $consulta->execute([$id]);
+            $opiniones = $consulta->fetchAll(PDO::FETCH_OBJ);  
+
+            return $opiniones;
+        }
     }
 
 ?>

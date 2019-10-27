@@ -21,5 +21,21 @@
         $this->view->DisplayOpiniones($opinion);
     }
 
+    public function mostrarOrdenado(){
+        $opinion = $this->model->mostrarOrdenado();
+        $this->view->DisplayOpiniones($opinion);
+    }
+
+    public function mostrarOpinionesServicios($id){
+        $opinion = $this->model->mostrarOpinionesServicios($id);
+        $this->view->displayOpinionesServicios($opinion);
+    }
+
+    public function mostrarOpinion($id){
+        $opinion = $this->model->mostrarOpinion($id);
+        $this->view->displayOpinionesServicios($opinion);
+    }
+    
+
    }
 ?>

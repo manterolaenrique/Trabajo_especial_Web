@@ -50,7 +50,7 @@
             $this->checkLogin();
             $cliente = $_POST["nombre_cliente"];
             $opinion = $_POST["opinion"];
-            $opinion = $this->model->editarOpinion($id,$cleinte,$opinion);
+            $opinion = $this->model->editarOpinion($id,$cliente,$opinion);
             header("Location: " . URL_ADMIN);
         }
 

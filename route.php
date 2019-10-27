@@ -59,6 +59,13 @@ if($action == ''){
         }elseif($partesURL[0] == "cerrarSesion") { 
            $usuario = new UsuarioController();
            $usuario->cerrarSesion();
+        }elseif($partesURL[0] == "listarOpinion") { 
+            $homeController->mostrarServicios();
+            $homeController->mostrarOrdenado();
+        }elseif($partesURL[0] == "verMasServicios") { 
+            $homeController->mostrarOpinionesServicios($partesURL[1]); 
+        }elseif($partesURL[0] == "verMasOpinion") { 
+            $homeController->mostrarOpinion($partesURL[1]); 
         }
     }
 }

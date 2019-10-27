@@ -27,7 +27,7 @@
          //EDITA UN SERVICIO
          public function editarOpinion($id,$cliente,$opinion){
             $consulta = $this->db->prepare("UPDATE opinion SET cliente=?, opinion=? WHERE id = ?");
-            $consulta->execute(array($id,$cliente, $opinion));
+            $consulta->execute(array($cliente, $opinion,$id));
         }
 
         public function mostrarOpinion($id){

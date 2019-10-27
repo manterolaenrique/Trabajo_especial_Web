@@ -23,6 +23,14 @@ require_once('libs/Smarty.class.php');
             $smarty->assign('lista_opiniones',$opinion);
             $smarty->display('templates/ver_opiniones.tpl');
         }
+
+        public function displayOpinionesServicios($opinion){
+            $smarty = new Smarty();
+            $smarty->assign('titulo',"Opiniones de Servicios");
+            $smarty->assign('BASE_URL',BASE_URL);
+            $smarty->assign('lista_opiniones',$opinion);
+            $smarty->display('templates/opiniones_servicios.tpl');
+        }
     }
 
 ?>
