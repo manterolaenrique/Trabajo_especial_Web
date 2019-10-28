@@ -2,6 +2,8 @@
 
     class ServicioModel{
 
+        private $db;
+
         //CONSTRUCTOR DE LA CLASE
         function __construct(){
             $this->db = new PDO('mysql:host=localhost;'.'dbname=clicksofware;charset=utf8', 'root', '');
@@ -46,8 +48,11 @@
 
         //BORRAR UN SERVICIO
         public function borrarServicio($id){
+            $consulta_opiniones = $this->db->prepare("DELETE FROM opinion WHERE id_servicio=?");
+            $consulta_opiniones->execute(array($id));
             $consulta = $this->db->prepare("DELETE FROM servicios WHERE id=?");
             $consulta->execute(array($id));
+
         }
 
     }

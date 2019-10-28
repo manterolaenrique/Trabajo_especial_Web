@@ -1,7 +1,7 @@
 {include file="header.tpl"}
 <section class="text-center">
-    <form action=" " method="post">
-        <input type="submit" value="Volver a Inicio de la Pagina">
+    <form action=" {$BASE_URL} " method="post">
+        <input type="submit" class="btn btn-primary" value="Volver a Inicio de la Pagina">
     </form>
     <article>
         <h1>Tabla De Opiniones</h1>
