@@ -28,14 +28,18 @@
 
         //INSERTAR UN SERVICIO NUEVO
         public function insertarServicio($nombre,$informacion){
-            $consulta = $this->db->prepare("INSERT INTO servicios(nombre, info) VALUES(?,?)");
-            $consulta->execute(array($nombre,$informacion));
+            if (!empty($nombre) & (!empty($informacion))){ 
+                $consulta = $this->db->prepare("INSERT INTO servicios(nombre, info) VALUES(?,?)");
+                $consulta->execute(array($nombre,$informacion));
+            }
         }
 
         //EDITA UN SERVICIO
         public function editarServicio($id,$nombre,$informacion){
-            $consulta = $this->db->prepare("UPDATE servicios SET nombre=?, info=? WHERE id = ?");
-            $consulta->execute(array($nombre, $informacion,$id));
+            if(!empty($nombre) & (!empty($informacion))){
+                $consulta = $this->db->prepare("UPDATE servicios SET nombre=?, info=? WHERE id = ?");
+                $consulta->execute(array($nombre, $informacion,$id));
+            }
         }
 
         //RETORNA UN SERVICIO 

@@ -66,6 +66,10 @@ if($action == ''){
             $homeController->mostrarOpinionesServicios($partesURL[1]); 
         }elseif($partesURL[0] == "verMasOpinion") { 
             $homeController->mostrarOpinion($partesURL[1]); 
+        }elseif($partesURL[0] == "mostrarImagen"){
+            $opinionController->mostrarImagen($partesURL[1]);
+        }elseif($partesURL[0] == "insertarImagen"){
+            $opinionController->insertaImagen($partesURL[1]);
         }
     }
 }
