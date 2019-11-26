@@ -5,6 +5,7 @@ require_once "Controllers/UsuarioController.php";
 require_once "Controllers/RegistraController.php";
 require_once "Controllers/ServicioController.php";
 require_once "Controllers/OpinionController.php";
+require_once "COntrollers/ImagenController.php";
 
 
 
@@ -19,6 +20,7 @@ define("URL_ADMIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"
 $homeController = new HomeController();
 $servicioController = new ServicioController();
 $opinionController = new OpinionController();
+$imagenController = new ImagenController();
 
 
 if($action == ''){
@@ -67,9 +69,11 @@ if($action == ''){
         }elseif($partesURL[0] == "verMasOpinion") { 
             $homeController->mostrarOpinion($partesURL[1]); 
         }elseif($partesURL[0] == "mostrarImagen"){
-            $opinionController->mostrarImagen($partesURL[1]);
+            $imagenController->mostrarImagen($partesURL[1]);
         }elseif($partesURL[0] == "insertarImagen"){
-            $opinionController->insertaImagen($partesURL[1]);
+            $imagenController->insertaImagen($partesURL[1]);
+        }elseif($partesURL[0] == "borrarImagen"){
+            $imagenController->borrarImagen($partesURL[1]);
         }
     }
 }

@@ -2,6 +2,7 @@
 require_once "./Models/RegistraModel.php";
 require_once "./Views/RegistraView.php";
 
+
     class RegistraController{
 
         private $model;

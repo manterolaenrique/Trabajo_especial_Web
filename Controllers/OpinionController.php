@@ -1,6 +1,8 @@
 <?php
     require_once "./Models/OpinionModel.php";
+    require_once "./Models/ImagenModel.php"; 
     require_once "./Views/OpinionView.php";
+    
 
     class OpinionController{
         private $model;
@@ -9,6 +11,7 @@
         function __construct(){
             $this->model = new OpinionModel();
             $this->view = new OpinionView();
+            $this->model2= new ImagenModel();
         }
 
         //VERIFICA SI HAY UN USUARIO LOGUEADO
@@ -39,11 +42,10 @@
             $servicio = $_POST['servicio'];
             $cliente = $_POST['nombre_cliente'];
             $opinion = $_POST['opinion_servicio'];
-            $this->checkLogin();
+            //$this->checkLogin();
             if ($_FILES['imagen']['name']) {
                 if ($_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/png") {
-                    $this->model->insertarOpinion($servicio,$cliente,$opinion,$_FILES['imagen']);
-                    //$this->model->InsertarTarea($_POST['titulo'], $_POST['descripcion'], $_POST['prioridad'], $finalizada, $_FILES['imagen']);
+                    $this->model2->insertarOpinion($servicio,$cliente,$opinion,$_FILES['imagen']);
                 }
                 else {
                     $this->view->showError("Formato no aceptado");
@@ -53,15 +55,8 @@
             else {
                 $this->model->insertarOpinion($servicio,$cliente,$opinion);  
             }
-            
             header("Location: " . URL_ADMIN);
 
-        }
-
-        public function mostrarImagen($id){
-            $this->checkLogin();
-            $imagen = $this->model->mostrarImagen($id);
-            $this->view->mostrarImagen($imagen);
         }
 
         //   //VA A EDITAR UN SERVICIO
@@ -73,19 +68,6 @@
             header("Location: " . URL_ADMIN);
         }
 
-        public function insertaImagen($id){
-            $this->checkLogin();
-            if ($_FILES['imagen']['name']) {
-                if ($_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/png") {
-                    $this->model->insertaImagen($id,$_FILES['imagen']);
-                }
-                else {
-                    $this->view->showError("Formato no aceptado");
-                    die();
-                }
-            }
-            header("Location: " . URL_ADMIN);
-        }
 
         //BORRA UNA OPINION
         public function borrarOpinion($id){
@@ -93,6 +75,8 @@
             $this->model->borrarOpinion($id);
             header("Location: " . URL_ADMIN);
         }
+
+        
 
     }
 ?>
