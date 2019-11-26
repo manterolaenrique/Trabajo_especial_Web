@@ -5,11 +5,5 @@ section, article {
 .recuadro{
     width:  300px;
     height: 200px;
-    background-color : red;
 }
 
-td{
-    width:  30px;
-    height: 20px;
-    background-color : red;
-}

@@ -10,6 +10,7 @@ require_once "COntrollers/ImagenController.php";
 
 
 $action = $_GET["action"];
+define("URL_HOME", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/inicio');
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
 // define("URL_TAREAS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/tareas');
 define("URL_LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
@@ -23,6 +24,7 @@ $opinionController = new OpinionController();
 $imagenController = new ImagenController();
 
 
+
 if($action == ''){
    $homeController->mostrarServicios();
    $homeController->mostrarOpiniones();
@@ -30,12 +32,21 @@ if($action == ''){
 }else{
     if (isset($action)){
         $partesURL = explode("/", $action);
+        //if($partesURL[0] == "inicio"){
+          //  $usuario = new UsuarioController();
+            //$usuario->login();
+           // $servicioController->mostrarServicios();
+            //$opinionController->mostrarOpiniones();
+            //$servicioController->mostrarListarServicios();
+       // }
+
         if($partesURL[0] == "iniciarSesion") {
             $usuarioController = new UsuarioController();
             $usuarioController->iniciarSesion();
         }elseif($partesURL[0] == "registroUsuario") {
             $controllerRegistro = new RegistraController();
             $controllerRegistro->registroUsuario();
+            $controllerRegistro->iniciarSesion();
         }elseif($partesURL[0] == "panel") {
             $usuario = new UsuarioController();
             $usuario->login();
