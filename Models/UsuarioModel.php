@@ -7,7 +7,6 @@ class UsuarioModel {
         $this->db = new PDO('mysql:host=localhost;'.'dbname=clicksofware;charset=utf8', 'root', '');
     }
     
-
     public function mostrarContraseña($usuario){
         $consulta = $this->db->prepare( "SELECT * FROM usuarios WHERE email = ?");
         $consulta->execute(array($usuario));
@@ -19,7 +18,6 @@ class UsuarioModel {
         $consulta = $this->db->prepare( "SELECT * FROM usuarios");
         $consulta->execute();
         $usuarios = $consulta->fetchAll(PDO::FETCH_OBJ);
-        // print_r ($usuarios);
         return $usuarios;
     }
 
@@ -43,14 +41,11 @@ class UsuarioModel {
           $consulta = $this->db->prepare ("SELECT * FROM usuarios where (id=?) AND (acceso=1)");
           $consulta->execute(array($id));
           $existe = $consulta->fetch(PDO::FETCH_OBJ);
-          if ($existe){
+          if ($existe)
             return true;
-          }
-          else{
-            return false;
-          }
-        //return true;
-      }
+          else
+            return false;  
+        }
     }
 }
 ?>

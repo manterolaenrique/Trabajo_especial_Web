@@ -49,11 +49,9 @@ class ServicioController{
 
    //VA A EDITAR UN SERVICIO
    public function editarServicio($id){
-    $this->checkLogin();
-     $nombre = $_POST["nombre"];
-     $info = $_POST["informacion"];
-     $servicio = $this->model->editarServicio($id,$nombre,$info);
-     header("Location: " . URL_ADMIN);
+        $this->checkLogin();
+        $servicio = $this->model->editarServicio($id,$_POST["nombre"],$_POST["informacion"]);
+        header("Location: " . URL_ADMIN);
     }
 
     //VA A BORRAR UN SERVICIO

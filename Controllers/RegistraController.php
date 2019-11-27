@@ -13,7 +13,7 @@ require_once "./Models/UsuarioModel.php";
         function __construct(){
             $this->model = new RegistraModel();
             $this->view = new RegistraView();
-            $this->log = new UsuarioModel();
+            $this->login = new UsuarioModel();
         }
 
         public function registroUsuario(){
@@ -26,8 +26,7 @@ require_once "./Models/UsuarioModel.php";
                 session_start();
                 $_SESSION['user'] = $usuario->email;
                 $_SESSION['userId'] = $usuario->id;
-                $this->iniciarSesion();
-                //header("Location: " . URL_ADMIN);  
+                $this->iniciarSesion(); 
             }else{
                 header("Location: " . URL_ADMIN);
             }
@@ -35,13 +34,12 @@ require_once "./Models/UsuarioModel.php";
 
         public function iniciarSesion(){
             $contraseña = $_POST['contraseña'];
-            $usuario = $this->log->mostrarContraseña($_POST['mail']);
+            $usuario = $this->login->mostrarContraseña($_POST['mail']);
             if (isset($usuario) && $usuario != null && password_verify($contraseña, $usuario->contraseña)){
                 session_start();
                 $_SESSION['user'] = $usuario->email;
                 $_SESSION['userId'] = $usuario->id;
                 header("Location: " . URL_ADMIN);
-                // $this->view->displayPanel();
             }else{
                 header("Location: " . BASE_URL);
             }   

@@ -7,11 +7,12 @@
     class OpinionController{
         private $model;
         private $view;
+        private $modelImagen;
 
         function __construct(){
             $this->model = new OpinionModel();
             $this->view = new OpinionView();
-            $this->model2= new ImagenModel();
+            $this->modelImagen= new ImagenModel();
         }
 
         //VERIFICA SI HAY UN USUARIO LOGUEADO
@@ -39,33 +40,24 @@
 
         //INSERTA UNA OPNION NUEVA
         public function insertarOpinion(){
-            $servicio = $_POST['servicio'];
-            echo $servicio;
-            $cliente = $_POST['nombre_cliente'];
-            $opinion = $_POST['opinion_servicio'];
-            //$this->checkLogin();
+            $this->checkLogin();
             if ($_FILES['imagen']['name']) {
-                if ($_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/png") {
-                    $this->model2->insertarOpinion($servicio,$cliente,$opinion,$_FILES['imagen']);
-                }
+                if ($_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/png") 
+                    $this->modelImagen->insertarOpinion($_POST['servicio'],$_POST['nombre_cliente'],$_POST['opinion_servicio'],$_FILES['imagen']);
                 else {
                     $this->view->showError("Formato no aceptado");
                     die();
                 }
             }
-            else {
-                $this->model->insertarOpinion($servicio,$cliente,$opinion);  
-            }
+            else
+                $this->modelImagen->insertarOpinion($_POST['servicio'],$_POST['nombre_cliente'],$_POST['opinion_servicio']);  
             header("Location: " . URL_ADMIN);
-
         }
 
-        //   //VA A EDITAR UN SERVICIO
+        //VA A EDITAR UN SERVICIO
         public function editarOpinion($id){
             $this->checkLogin();
-            $cliente = $_POST["nombre_cliente"];
-            $opinion = $_POST["opinion"];
-            $opinion = $this->model->editarOpinion($id,$cliente,$opinion);
+            $opinion = $this->model->editarOpinion($id,$_POST["nombre_cliente"],$_POST["opinion"]);
             header("Location: " . URL_ADMIN);
         }
 

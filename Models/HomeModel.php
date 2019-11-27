@@ -12,7 +12,6 @@
             $consulta = $this->db->prepare( "SELECT * from servicios");
             $consulta->execute();
             $servicios = $consulta->fetchAll(PDO::FETCH_OBJ);
-        
             return $servicios;
         }
 
@@ -20,7 +19,6 @@
             $consulta = $this->db->prepare("SELECT * from servicios inner Join opinion ON servicios.id = opinion.id_servicio");
             $consulta->execute();
             $opiniones = $consulta->fetchAll(PDO::FETCH_OBJ);   
-
             return $opiniones;
         }
 
@@ -28,7 +26,6 @@
             $consulta = $this->db->prepare("SELECT * from servicios inner Join opinion ON servicios.id = opinion.id_servicio ORDER BY id_servicio ASC");
             $consulta->execute();
             $opiniones = $consulta->fetchAll(PDO::FETCH_OBJ);   
-
             return $opiniones;
         }
 
@@ -36,7 +33,6 @@
             $consulta = $this->db->prepare( "SELECT * from opinion where id_servicio = ?");
             $consulta->execute([$id]);
             $opiniones = $consulta->fetchAll(PDO::FETCH_OBJ);  
-
             return $opiniones;
         }
 
@@ -44,7 +40,6 @@
             $consulta = $this->db->prepare( "SELECT * from opinion where id = ?");
             $consulta->execute([$id]);
             $opiniones = $consulta->fetchAll(PDO::FETCH_OBJ);  
-
             return $opiniones;
         }
     }

@@ -29,7 +29,6 @@ require_once "./Views/UsuarioView.php";
                 $_SESSION['user'] = $usuario->email;
                 $_SESSION['userId'] = $usuario->id;
                 header("Location: " . URL_ADMIN);
-                // $this->view->displayPanel();
             }else{
                 header("Location: " . BASE_URL);
             }   
@@ -59,7 +58,6 @@ require_once "./Views/UsuarioView.php";
             session_destroy();
             header("Location: " . BASE_URL);
         }
-
 
         public function borrarUsuario(){
             $this->model->borrarUsuario($_POST['usuario']);

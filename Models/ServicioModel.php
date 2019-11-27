@@ -14,7 +14,6 @@
             $consulta = $this->db->prepare( "SELECT * from servicios");
             $consulta->execute();
             $servicios = $consulta->fetchAll(PDO::FETCH_OBJ);
-        
             return $servicios;
         }
 
@@ -56,7 +55,6 @@
             $consulta_opiniones->execute(array($id));
             $consulta = $this->db->prepare("DELETE FROM servicios WHERE id=?");
             $consulta->execute(array($id));
-
         }
 
     }
