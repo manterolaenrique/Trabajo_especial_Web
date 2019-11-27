@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2019 a las 04:45:42
+-- Tiempo de generación: 27-11-2019 a las 19:17:05
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.8
 
@@ -39,10 +39,9 @@ CREATE TABLE `imagenes` (
 --
 
 INSERT INTO `imagenes` (`id`, `id_opinion`, `img`) VALUES
-(24, 35, 'img/task/5ddc9b38c5c00.jpg'),
-(25, 69, 'img/task/5ddc9bd5a6d4d.jpg'),
-(26, 49, 'img/task/5ddc9c86aaab7.jpg'),
-(27, 35, 'img/task/5ddc9e1ed0b52.jpg');
+(39, 46, 'img/task/5ddebd55e4612.jpg'),
+(40, 46, 'img/task/5ddebd5caf2a6.jpg'),
+(41, 50, 'img/task/5ddebd659a2ac.jpg');
 
 -- --------------------------------------------------------
 
@@ -62,20 +61,10 @@ CREATE TABLE `opinion` (
 --
 
 INSERT INTO `opinion` (`id`, `id_servicio`, `cliente`, `opinion`) VALUES
-(35, 16, 'Esteban', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.'),
-(37, 14, 'Nicolas', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.'),
-(38, 14, 'Federico', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.'),
-(39, 16, 'Nicola', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.'),
-(41, 14, 'Cristian', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.'),
-(43, 18, 'Enrique', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.'),
-(44, 14, 'Alejo', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.'),
-(45, 18, 'Florencia', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.'),
 (46, 16, 'Matias', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.'),
 (49, 23, 'Juan', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.'),
 (50, 23, 'Alejandro', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.'),
-(51, 23, 'Catalina', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.'),
-(68, 14, 'Juan carlos', 'me gusta '),
-(69, 33, 'CHISPA', 'SOY GAY');
+(51, 23, 'Catalina', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.');
 
 -- --------------------------------------------------------
 
@@ -94,11 +83,10 @@ CREATE TABLE `servicios` (
 --
 
 INSERT INTO `servicios` (`id`, `nombre`, `info`) VALUES
-(14, 'Pagina Web Dinamica ', 'Los sitios Web dinámicos son aquellos que permiten crear aplicaciones dentro de la propia Web, otorgando una mayor interactividad con el navegante'),
+(14, 'Pagina Web Dinamica!!', 'Los sitios Web dinámicos son aquellos que permiten crear aplicaciones dentro de la propia Web, otorgando una mayor interactividad con el navegante'),
 (16, 'Sistema de Gestion Gastronomico ', 'Gestión Gastronómica es un sistema que agiliza y simplifica la operatoria de ventas y proveedores de un negocio gastronómico que opere con Fast-Food'),
 (18, 'Sistemas erp', 'Planificación de Recursos Empresariales es un conjunto de sistemas de información que permite la integración de ciertas operaciones de una empresa, especialmente las que tienen que ver con la producción, la logística, el inventario'),
-(23, 'Pagina Web Estatica', 'Las páginas web estáticas son básicamente informativas y están enfocadas principalmente a mostrar una información permanente'),
-(33, 'LA CONCHA DE TU MADRE', 'HIJO DE PUTA');
+(23, 'Pagina Web Estatica', 'Las páginas web estáticas son básicamente informativas y están enfocadas principalmente a mostrar una información permanente');
 
 -- --------------------------------------------------------
 
@@ -137,17 +125,18 @@ INSERT INTO `tarea` (`id`, `titulo`, `descripcion`, `prioridad`, `finalizada`) V
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `contraseña` varchar(255) NOT NULL
+  `contraseña` varchar(255) NOT NULL,
+  `acceso` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `email`, `contraseña`) VALUES
-(2, 'test', '$2y$12$ohaKZw6QA6sLNECRYdqYd.dkmQMAigNkR8MN/kxGlupL5N7bpYBki'),
-(5, 'henry', '$2y$10$nxEJ.zXCuvLqbAom9KaXUO5v9eBc4g9DUYodXTrWnidjaN2any9UW'),
-(31, 'facu', '$2y$10$4RVqvBOSNUQackF6lJzvIe555mZba0i5gZZR.ap29iupI1cSfOzNW');
+INSERT INTO `usuarios` (`id`, `email`, `contraseña`, `acceso`) VALUES
+(2, 'test', '$2y$12$ohaKZw6QA6sLNECRYdqYd.dkmQMAigNkR8MN/kxGlupL5N7bpYBki', 2),
+(5, 'henry', '$2y$10$nxEJ.zXCuvLqbAom9KaXUO5v9eBc4g9DUYodXTrWnidjaN2any9UW', 1),
+(31, 'facu', '$2y$10$4RVqvBOSNUQackF6lJzvIe555mZba0i5gZZR.ap29iupI1cSfOzNW', 2);
 
 --
 -- Índices para tablas volcadas
@@ -194,13 +183,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `opinion`
 --
 ALTER TABLE `opinion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT de la tabla `servicios`
@@ -218,7 +207,7 @@ ALTER TABLE `tarea`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- Restricciones para tablas volcadas
