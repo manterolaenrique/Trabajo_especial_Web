@@ -16,6 +16,14 @@ class UsuarioView {
         $smarty->display('templates/panel.tpl');
     }
 
+    public function displayAdmin(){
+        $smarty = new Smarty();
+        $smarty->assign('titulo',"Login");
+        $smarty->assign('BASE_URL',BASE_URL);
+        $smarty->display('templates/panel.tpl');
+        $smarty->display('templates/control_admin.tpl');
+    }
+
     public function mostrar($usuario){
         $smarty = new Smarty();
         $smarty->assign('titulo',"Lista Usuarios");

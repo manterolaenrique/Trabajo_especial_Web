@@ -81,7 +81,9 @@ if($action == ''){
             $usuarioController->mostrar();
         }elseif($partesURL[0] == "usuarioAplica"){
             $usuarioController->modificarAcceso();
-        }  
+        }elseif($partesURL[0] == "usuarioBorrar"){
+            $usuarioController->borrarUsuario();
+        }   
     }
 }
 

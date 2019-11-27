@@ -18,6 +18,7 @@ require_once "./Views/UsuarioView.php";
                 header("Location: " . BASE_URL);
                 die();
             }
+            return $_SESSION['userId'];
         }
 
         public function iniciarSesion(){
@@ -40,8 +41,12 @@ require_once "./Views/UsuarioView.php";
         }
 
         public function login(){
-            $this->checkLogin();
-            $this->view->displayPanel();
+            $user = $this->checkLogin();
+            $admin = $this->model->verificaAdmin($user);
+            if ($admin)
+                $this->view->displayAdmin();
+            else
+                $this->view->displayPanel();
         }
 
         public function modificarAcceso(){
@@ -54,5 +59,12 @@ require_once "./Views/UsuarioView.php";
             session_destroy();
             header("Location: " . BASE_URL);
         }
+
+
+        public function borrarUsuario(){
+            $this->model->borrarUsuario($_POST['usuario']);
+            header("Location: " . URL_ADMIN);
+        }
+        
     }
 ?>

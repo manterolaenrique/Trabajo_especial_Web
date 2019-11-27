@@ -29,5 +29,28 @@ class UsuarioModel {
             $consulta->execute(array($acceso,$id));
         }
     }
+
+    public function borrarUsuario($id){
+        if(!empty($id)){
+            $consulta = $this->db->prepare("DELETE FROM usuarios WHERE id=?");
+            $consulta->execute(array($id));
+        }
+    }
+    
+
+    public function verificaAdmin($id){
+        if ($id != ""){
+          $consulta = $this->db->prepare ("SELECT * FROM usuarios where (id=?) AND (acceso=1)");
+          $consulta->execute(array($id));
+          $existe = $consulta->fetch(PDO::FETCH_OBJ);
+          if ($existe){
+            return true;
+          }
+          else{
+            return false;
+          }
+        //return true;
+      }
+    }
 }
 ?>

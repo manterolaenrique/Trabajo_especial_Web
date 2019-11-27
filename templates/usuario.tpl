@@ -15,4 +15,14 @@
             </select> 
             <input type="submit" class="btn btn-primary" value="aplicar">
         </form>
+
+         <form action="usuarioBorrar" method="post">
+         <select name="usuario">
+                    <option value=" "> </option> 
+                {foreach from=$lista_usuarios item=usuario}
+                    <option value="{$usuario->id}" >{$usuario->email}</option> 
+                {/foreach}
+            </select> 
+            <input type="submit" class="btn btn-primary" value="Borrar">
+        </form>
     </article>
