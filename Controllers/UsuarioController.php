@@ -34,9 +34,19 @@ require_once "./Views/UsuarioView.php";
             }   
         }
 
+        public function mostrar(){
+            $usuarios = $this->model->mostrar();
+            $this->view->mostrar($usuarios);
+        }
+
         public function login(){
             $this->checkLogin();
             $this->view->displayPanel();
+        }
+
+        public function modificarAcceso(){
+            $this->model->modificarAcceso($_POST['usuario'],$_POST['prioridad']);
+            header("Location: " . URL_ADMIN);
         }
 
         public function cerrarSesion(){
@@ -45,6 +55,4 @@ require_once "./Views/UsuarioView.php";
             header("Location: " . BASE_URL);
         }
     }
-
-
 ?>

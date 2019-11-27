@@ -40,6 +40,7 @@
         //INSERTA UNA OPNION NUEVA
         public function insertarOpinion(){
             $servicio = $_POST['servicio'];
+            echo $servicio;
             $cliente = $_POST['nombre_cliente'];
             $opinion = $_POST['opinion_servicio'];
             //$this->checkLogin();

@@ -15,6 +15,14 @@ class UsuarioView {
         $smarty->assign('BASE_URL',BASE_URL);
         $smarty->display('templates/panel.tpl');
     }
+
+    public function mostrar($usuario){
+        $smarty = new Smarty();
+        $smarty->assign('titulo',"Lista Usuarios");
+        $smarty->assign('BASE_URL',BASE_URL);
+        $smarty->assign('lista_usuarios',$usuario);
+        $smarty->display('templates/usuario.tpl');
+    }
 }
 
 ?>
