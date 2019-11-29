@@ -22,6 +22,7 @@ $servicioController = new ServicioController();
 $opinionController = new OpinionController();
 $imagenController = new ImagenController();
 $usuarioController = new UsuarioController();
+$registraController = new RegistraController();
 
 
 
@@ -83,7 +84,13 @@ if($action == ''){
             $usuarioController->modificarAcceso();
         }elseif($partesURL[0] == "usuarioBorrar"){
             $usuarioController->borrarUsuario();
-        }   
+        }elseif($partesURL[0] == "mostrarOlvideContraseña"){
+            $usuarioController->mostrarOlvideContraseña();
+        }elseif($partesURL[0] == "olvideContraseña"){
+            $usuarioController->olvideContraseña();
+        } elseif($partesURL[0] == "nuevaContraseña"){
+            $registraController->nuevaContraseña();
+        }           
     }
 }
 

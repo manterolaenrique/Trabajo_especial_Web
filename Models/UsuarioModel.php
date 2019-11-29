@@ -14,11 +14,33 @@ class UsuarioModel {
         return $contraseña;
     }
 
+    public function mostrarContrasena($usuario){
+        $consulta = $this->db->prepare( "SELECT * FROM usuarios WHERE email = ?");
+        $consulta->execute(array($usuario));
+        $contraseña = $consulta->fetchAll(PDO::FETCH_OBJ);  
+        return $contraseña;
+    }
+
     public function mostrar(){
         $consulta = $this->db->prepare( "SELECT * FROM usuarios");
         $consulta->execute();
         $usuarios = $consulta->fetchAll(PDO::FETCH_OBJ);
         return $usuarios;
+    }
+
+    public function olvideContraseña($email){
+        $consulta = $this->db->prepare( "SELECT * FROM usuarios WHERE email = ?");
+        $consulta->execute(array($email));
+        $contraseña = $consulta->fetch(PDO::FETCH_OBJ); 
+        if($contraseña)
+            return true;
+        else
+             return false;
+    }
+
+    public function actualizarContraseña($email,$contraseña){
+            $consulta = $this->db->prepare("UPDATE usuarios SET contrasena=? WHERE email=?");
+            $consulta->execute(array($contraseña,$email)); 
     }
 
     public function modificarAcceso($id,$acceso){

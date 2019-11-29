@@ -6,6 +6,10 @@
                 <input type="password" name="contraseña" placeholder="Contraseña">
                 <input type="submit" class="btn btn-primary" value="Ingresar">
             </form>
+
+            <form action="mostrarOlvideContraseña" method="post">
+                <input type="submit" class="btn btn-primary" value="¿Has olvidado la contraseña?">
+            </form>
         </div>
         <div class="col">
             <form action="registroUsuario" method="post">

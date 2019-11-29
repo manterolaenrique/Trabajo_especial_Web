@@ -31,6 +31,23 @@ class UsuarioView {
         $smarty->assign('lista_usuarios',$usuario);
         $smarty->display('templates/usuario.tpl');
     }
+
+    public function DisplayOlvideContraseña(){
+        $smarty = new Smarty();
+        $smarty->assign('titulo',"olvideContraseña");
+        $smarty->assign('BASE_URL',BASE_URL);
+        $smarty->display('templates/olvideContraseña.tpl');
+    }
+
+    public function contraseñaNueva($contra){
+        $smarty = new Smarty();
+        $smarty->assign('titulo',"Nueva Contraseña");
+        $smarty->assign('BASE_URL',BASE_URL);
+        $smarty->assign('usuario_ver',$contra);
+        $smarty->display('templates/mostrarContrasenaNueva.tpl');
+    }
+
+   
 }
 
 ?>

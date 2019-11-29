@@ -17,9 +17,26 @@ class RegistraModel {
 
     public function registrar($mail, $contraseña){
         $hash = password_hash($contraseña, PASSWORD_DEFAULT, [15]);
-        $consulta = $this->db->prepare("INSERT INTO usuarios (email, contraseña) VALUES (?, ?)");
+        $consulta = $this->db->prepare("INSERT INTO usuarios (email, contrasena) VALUES (?, ?)");
         $consulta->execute(array($mail,$hash));
-        
+    }
+
+
+    public function actualizarContraseña($id,$contraseña){
+        $hash = password_hash($contraseña, PASSWORD_DEFAULT, [15]);
+        $consulta = $this->db->prepare("UPDATE usuarios SET contrasena=? WHERE id = ?");
+        $consulta->execute(array($hash,$id));
+    }
+    
+
+    public function confirmarContraseña($contraseña){
+        $consulta = $this->db->prepare( "SELECT * FROM usuarios WHERE contrasena = ?");
+        $consulta->execute(array($contraseña));
+        $contraseña = $consulta->fetch(PDO::FETCH_OBJ); 
+        if($contraseña)
+            return true;
+        else
+             return false;
     }
 }
 
