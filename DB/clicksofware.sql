@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2019 a las 19:17:05
+-- Tiempo de generación: 29-11-2019 a las 03:44:53
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.8
 
@@ -39,9 +39,7 @@ CREATE TABLE `imagenes` (
 --
 
 INSERT INTO `imagenes` (`id`, `id_opinion`, `img`) VALUES
-(39, 46, 'img/task/5ddebd55e4612.jpg'),
-(40, 46, 'img/task/5ddebd5caf2a6.jpg'),
-(41, 50, 'img/task/5ddebd659a2ac.jpg');
+(42, 50, 'img/task/5de0232e6139a.jpg');
 
 -- --------------------------------------------------------
 
@@ -61,9 +59,7 @@ CREATE TABLE `opinion` (
 --
 
 INSERT INTO `opinion` (`id`, `id_servicio`, `cliente`, `opinion`) VALUES
-(46, 16, 'Matias', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.'),
-(49, 23, 'Juan', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.'),
-(50, 23, 'Alejandro', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.'),
+(50, 23, 'Alejandro°!', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.'),
 (51, 23, 'Catalina', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi cum explicabo dicta quidem cupiditate. Labore voluptatem quo inventore optio provident, cumque obcaecati eius! Porro minus atque odit voluptatem nisi. Totam.');
 
 -- --------------------------------------------------------
@@ -83,7 +79,7 @@ CREATE TABLE `servicios` (
 --
 
 INSERT INTO `servicios` (`id`, `nombre`, `info`) VALUES
-(14, 'Pagina Web Dinamica!!', 'Los sitios Web dinámicos son aquellos que permiten crear aplicaciones dentro de la propia Web, otorgando una mayor interactividad con el navegante'),
+(14, 'Pagina Web Dinamica', 'Los sitios Web dinámicos son aquellos que permiten crear aplicaciones dentro de la propia Web, otorgando una mayor interactividad con el navegante'),
 (16, 'Sistema de Gestion Gastronomico ', 'Gestión Gastronómica es un sistema que agiliza y simplifica la operatoria de ventas y proveedores de un negocio gastronómico que opere con Fast-Food'),
 (18, 'Sistemas erp', 'Planificación de Recursos Empresariales es un conjunto de sistemas de información que permite la integración de ciertas operaciones de una empresa, especialmente las que tienen que ver con la producción, la logística, el inventario'),
 (23, 'Pagina Web Estatica', 'Las páginas web estáticas son básicamente informativas y están enfocadas principalmente a mostrar una información permanente');
@@ -125,7 +121,7 @@ INSERT INTO `tarea` (`id`, `titulo`, `descripcion`, `prioridad`, `finalizada`) V
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `contraseña` varchar(255) NOT NULL,
+  `contrasena` varchar(255) NOT NULL,
   `acceso` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -133,10 +129,9 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `email`, `contraseña`, `acceso`) VALUES
-(2, 'test', '$2y$12$ohaKZw6QA6sLNECRYdqYd.dkmQMAigNkR8MN/kxGlupL5N7bpYBki', 2),
-(5, 'henry', '$2y$10$nxEJ.zXCuvLqbAom9KaXUO5v9eBc4g9DUYodXTrWnidjaN2any9UW', 1),
-(31, 'facu', '$2y$10$4RVqvBOSNUQackF6lJzvIe555mZba0i5gZZR.ap29iupI1cSfOzNW', 2);
+INSERT INTO `usuarios` (`id`, `email`, `contrasena`, `acceso`) VALUES
+(57, 'facu', '$2y$10$.U7ZDPZO3TfN.qYd/J4QlOoGKnayhB6copIAzlx5w8vHb8U3qnyW.', 0),
+(59, 'henry', '$2y$10$7zuAum1InqwJh65qunZshuoIteIa5yRXQ6m2oamAdteX/WbcymNTm', 1);
 
 --
 -- Índices para tablas volcadas
@@ -183,7 +178,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `opinion`
@@ -195,7 +190,7 @@ ALTER TABLE `opinion`
 -- AUTO_INCREMENT de la tabla `servicios`
 --
 ALTER TABLE `servicios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `tarea`
@@ -207,7 +202,7 @@ ALTER TABLE `tarea`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- Restricciones para tablas volcadas
